@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    int n, tq, bt[10], i;
+
+    printf("Enter number of processes: ");
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++) {
+        printf("Burst Time of P%d: ", i + 1);
+        scanf("%d", &bt[i]);
+    }
+
+    printf("Enter Time Quantum: ");
+    scanf("%d", &tq);
+
+    printf("\nExecution:\n");
+
+    for(i = 0; i < n; i++) {
+        if(bt[i] > tq)
+            printf("P%d -> %d units\n", i + 1, tq);
+        else
+            printf("P%d -> %d units\n", i + 1, bt[i]);
+    }
+
+    return 0;
+}
