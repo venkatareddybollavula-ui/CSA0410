@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main()
+{
+    int block[5] = {100, 500, 200, 300, 600};
+    int process[4] = {212, 417, 112, 426};
+    int i, j, best;
+
+    for(i = 0; i < 4; i++)
+    {
+        best = -1;
+
+        for(j = 0; j < 5; j++)
+        {
+            if(block[j] >= process[i])
+            {
+                if(best == -1 || block[j] < block[best])
+                    best = j;
+            }
+        }
+
+        if(best != -1)
+        {
+            printf("Process %d allocated to Block %d\n", i + 1, best + 1);
+            block[best] -= process[i];
+        }
+        else
+        {
+            printf("Process %d cannot be allocated\n", i + 1);
+        }
+    }
+
+    return 0;
+}

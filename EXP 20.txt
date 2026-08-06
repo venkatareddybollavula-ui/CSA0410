@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main()
+{
+    int readers;
+
+    printf("Enter number of readers: ");
+    scanf("%d", &readers);
+
+    printf("\nReader-Writer Simulation\n");
+
+    for(int i = 1; i <= readers; i++)
+    {
+        printf("Reader %d is Reading\n", i);
+    }
+
+    printf("Writer is Writing\n");
+
+    return 0;
+}
