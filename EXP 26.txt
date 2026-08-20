@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main()
+{
+    FILE *fp;
+    char name[50], data[100], ch;
+
+    printf("Enter file name: ");
+    scanf("%s", name);
+
+    fp = fopen(name, "w");
+
+    if(fp == NULL)
+    {
+        printf("Cannot create file.\n");
+        return 1;
+    }
+
+    printf("Enter text: ");
+    scanf(" %[^\n]", data);
+
+    fprintf(fp, "%s", data);
+    fclose(fp);
+
+    fp = fopen(name, "r");
+
+    printf("\nFile Content:\n");
+    while((ch = fgetc(fp)) != EOF)
+        putchar(ch);
+
+    fclose(fp);
+
+    return 0;
+}
